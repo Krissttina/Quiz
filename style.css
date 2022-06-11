@@ -18,30 +18,27 @@ body{
 }
 
 .quiz_box{
-    height: 70px;
-    padding: 0 30px;
-    display: flex;
     align-items: center;
     justify-content: center;
-    
 } 
 
 .quiz_box{
     width: 700px;
-    height: 500px;
+    height: 450px;
     background: #fff;
     border-radius: 5px;
 }
 
 .quiz_box header{
-    margin-bottom: 400px;
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
     position: relative;
     z-index: 99;
-    font-size: 50px;
-    height: 70px;
     padding: 0 30px;
-    background: #fff;
-    display: flex;
+    font-size: 25px;
+    font-weight: 600;
     align-items: center;
     justify-content: space-between;
     box-shadow: 3px rgb(12, 12, 12);
@@ -69,11 +66,13 @@ section .option_list .option{
     padding:  8px 15px;
     margin-bottom: 15px;
     display: flex;
+    border-style: outset;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 
 section .option_list .option:hover{
     color: rgb(103, 143, 189);
@@ -91,7 +90,7 @@ section .option_list .option:hover{
 }
 
 button{
-    margin-top: 350px;
+    margin-left: 300px;
     height: 40px;
     padding: 0 13px;
     font-size: 18px;
@@ -99,7 +98,7 @@ button{
     border: none;
     outline: none;
     color: #fff;
-    background: rgb(37, 18, 139);
+    background: rgb(43, 103, 143);
     border-radius: 5px;
     border: 1px solid #007bff;
     cursor: pointer;
@@ -107,5 +106,5 @@ button{
 }
 
 button:hover{
-    background: #0263ca;
+    background: #439e3b;
 }
