@@ -1,2 +1,2 @@
-# Quize
-Short quize
+# Quiz
+Short quiz
