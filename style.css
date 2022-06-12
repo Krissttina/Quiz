@@ -108,3 +108,19 @@ button{
 button:hover{
     background: #439e3b;
 }
+
+.option_list.option.correct{
+    color: rgb(71, 173, 12);
+    background: white;
+    background: rgb(12, 136, 8);
+}
+
+.option_list.option.wrong{
+    color: rgb(173, 12, 12);
+    background: white;
+    background: rgb(136, 8, 8);
+}
+
+.option_list .option.disabled{
+    pointer-events: none;
+}
