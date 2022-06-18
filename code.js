@@ -1,34 +1,101 @@
-const que_text = document.querySelector(".que_text");
+//const questions = [
+    //{
+      //  numb:1,
+       // question: "What does HTML stand for?",
+        //answer: "Hyper Text Markup Language",
+       // options: [
+        //    "Home Tool Markup Language",
+        //    "Hyper Text Markup Language",
+       //     "Hyperlinks and Text Markup Language"
+       // ]
+   // }
+//]
 
-function showQuestions(index){
-    const que_text = document.querySelector(".que_text");
-    const option_list = document.querySelector(".option_list");
-    let que_tag = '<span>' + questions[index].numb + ". " + questions[index].question + '</span>';
-    let option_tag = '<div class = "option"' + questions[index].options[0] + '<span></span></div>';
-                    + '<div class = "option"' + questions[index].options[1] + '<span></span></div>';
-                    + '<div class = "option"' + questions[index].options[2] + '<span></span></div>';
-    que_text.innerHTML = que_tag;
-    option_list.innerHTML = option_tag;
-    const option = option_list.querySelectorAll(".option");
-    for(let i = 0; option.lenght; i++){
-        option[i].setAttribute("onclick", "optionSelected(this)");
-    }
+const startButton = document.getElementById('start-btn')
+const nextButton = document.getElementById('next-btn')
+const questionContainerElement = document.getElementById('question-container')
+const questionElement = document.getElementById('question')
+const answerButtonsElement = document.getElementById('answer-buttons')
+
+let shuffledQuestions, currentQuestionIndex
+
+startButton.addEventListener('click', startGame)
+nextButton.addEventListener('click', () => {
+  currentQuestionIndex++
+  setNextQuestion()
+})
+
+function startGame() {
+  startButton.classList.add('hide')
+  shuffledQuestions = questions.sort(() => Math.random() - .5)
+  currentQuestionIndex = 0
+  questionContainerElement.classList.remove('hide')
+  setNextQuestion()
 }
 
-function answerSelected(answer){
-    let userAns = answer.textContent;
-    let correctAns = "Hyper Text Markup Language";
-    let allOptions = option_list.children.lenght;
-
-    if(userAns == correctAns){
-        answer.classList.add("correct");
-        console.log("Answer is correct!");
-    }else{
-        answer.classList.add("wrong");
-        console.log("Answer is wrong!");
-    }
-
-    for(let i = 0; i < allOptions; i++){
-        option_list.children[i].classList.add("disabled")
-    }
+function setNextQuestion() {
+  resetState()
+  showQuestion(shuffledQuestions[currentQuestionIndex])
 }
+
+function showQuestion(question) {
+  questionElement.innerText = question.question
+  question.answers.forEach(answer => {
+    const button = document.createElement('button')
+    button.innerText = answer.text
+    button.classList.add('btn')
+    if (answer.correct) {
+      button.dataset.correct = answer.correct
+    }
+    button.addEventListener('click', selectAnswer)
+    answerButtonsElement.appendChild(button)
+  })
+}
+
+function resetState() {
+  clearStatusClass(document.body)
+  nextButton.classList.add('hide')
+  while (answerButtonsElement.firstChild) {
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+  }
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target
+  const correct = selectedButton.dataset.correct
+  setStatusClass(document.body, correct)
+  Array.from(answerButtonsElement.children).forEach(button => {
+    setStatusClass(button, button.dataset.correct)
+  })
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove('hide')
+  } else {
+    startButton.innerText = 'Restart'
+    startButton.classList.remove('hide')
+  }
+}
+
+function setStatusClass(element, correct) {
+  clearStatusClass(element)
+  if (correct) {
+    element.classList.add('correct')
+  } else {
+    element.classList.add('wrong')
+  }
+}
+
+function clearStatusClass(element) {
+  element.classList.remove('correct')
+  element.classList.remove('wrong')
+}
+
+const questions = [
+  {
+    question: 'What does HTML stand for?',
+    answers: [
+      { text: 'Hyper Text Markup Language', correct: true },
+      { text: 'Home Tool Markup Language', correct: false },
+      { text: 'Hyperlinks and Text Markup Language', correct: false }
+    ]
+  }
+]
