@@ -15,7 +15,7 @@
   }
   
   .container {
-    width: 700px;
+    
     max-width: 80%;
     background-color: white;
     border-radius: 5px;
@@ -42,12 +42,15 @@
   
   
   .btn {
+    
     border: none;
     outline: none;
     color: #fff;
     background-color: rgb(98, 167, 207);
     border-radius: 5px;
-    font-size: 20px;
+    height: 45px;
+    padding: 0 15px;
+    font-size: 40px;
     cursor: pointer;
     transition: all 0.3s ease;
   }
@@ -70,7 +73,10 @@
     border-color: #37862f;
   }
   
-  
+  .hide{
+    display: none;
+  }
+
   .quiz_box footer{
     display: flex;
     user-select: none;
