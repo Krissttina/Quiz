@@ -1,16 +1,3 @@
-//const questions = [
-    //{
-      //  numb:1,
-       // question: "What does HTML stand for?",
-        //answer: "Hyper Text Markup Language",
-       // options: [
-        //    "Home Tool Markup Language",
-        //    "Hyper Text Markup Language",
-       //     "Hyperlinks and Text Markup Language"
-       // ]
-   // }
-//]
-
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('sub-btn')
 const questionContainerElement = document.getElementById('question-container')
@@ -88,6 +75,8 @@ function clearStatusClass(element) {
   element.classList.remove('correct')
   element.classList.remove('wrong')
 }
+
+
 
 const questions = [
   {
