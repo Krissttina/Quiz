@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/420ba10640.js" crossorigin="anonymous"></script>
+    <title>Quiz</title>
+</head>
+<body>
+    <!--Start-->
+    <section class="container" hidden>
+      <h1>Are you ready to take that quiz?</h1>
+      <h4>Click on the Start button</h4>
+      <button id="start-btn" class="start-btn btn">Start</button>
+    </section>
+    <!--Questions-->
+    <section class="container" >
+      <h2 id="question">What does HTML stand for?</h2>
+          <div id="answerBtns">
+            <div>
+              <button class="btn">Hyper Text Markup Language</button>
+            </div>
+            <div>
+              <button class="btn">Home Tool Markup Language</button>
+            </div>
+            <div>
+              <button class="btn">Hyperlinks and Text Markup Language</button>
+            </div>
+          </div>
+            <button class="submitBtn">Submit</button>
+    </section>
+    <!--Congrats-->
+    <section  class="resultWin" hidden>
+      <i class="fa-solid fa-crown"></i>
+      <p>Congrats!&#10024; You've answered correctly! &#128516;</p>      
+    </section>
+    <!--Fail-->
+    <section  class="resultLose" hidden>
+      <i class="fa-solid fa-face-frown"></i>
+      <p>Oh no! Try again! <i class="fa-solid fa-arrow-rotate-right"></i></p>      
+    </section>
+
+      <script src="script.js"></script>
+    </body>
+    </html>
