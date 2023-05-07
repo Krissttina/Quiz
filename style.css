@@ -52,6 +52,7 @@ h2{
   margin-bottom: 30px;
 }
 
+/*Questions btns style*/
 .btn{
   margin: 6px;
   padding: 6px 25px;
@@ -66,4 +67,18 @@ h2{
 .btn:hover{
   background-color: rgb(125, 166, 221);
   color: white;
+}
+
+/*Result section*/
+p{
+    margin: 25px 50px;
+    font-size: 25px;
+    font: bold;
+}
+
+i{
+  margin: 0;
+  padding: 0;
+  font-size: 100px;
+  color: rgb(247, 234, 58);
 }
