@@ -10,13 +10,13 @@
 </head>
 <body>
     <!--Start-->
-    <section class="container" hidden>
+    <section class="container" id="startSection">
       <h1>Are you ready to take that quiz?</h1>
       <h4>Click on the Start button</h4>
-      <button id="start-btn" class="start-btn btn">Start</button>
+      <button id="startBtn">Start</button>
     </section>
     <!--Questions-->
-    <section class="container" hidden>
+    <section class="container" id="QuestionSection" hidden>
       <h2 id="question">What does HTML stand for?</h2>
           <div id="answerBtns">
             <div>
@@ -32,12 +32,12 @@
             <button class="submitBtn">Submit</button>
     </section>
     <!--Congrats-->
-    <section  class="container" hidden>
+    <section  class="container" id="WinSection" hidden>
       <i class="fa-solid fa-crown"></i>
       <p>Congrats!&#10024; You've answered correctly! &#128516;</p>      
     </section>
     <!--Fail-->
-    <section class="container" >
+    <section class="container" id="FailSection" hidden>
       <i class="fa-solid fa-face-frown"></i>
       <p>Oh no! Try again!</p>      
     </section>
