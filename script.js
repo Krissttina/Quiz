@@ -4,7 +4,7 @@ const questionSection = document.getElementById('QuestionSection');
 const winSection = document.getElementById('WinSection');
 const failSection = document.getElementById('FailSection');
 
-const answerButtonsElement = document.getElementById('answerBtns')
+const answerBtns = document.getElementById('answerBtns')
 
 //start the quiz
 document.getElementById('startBtn').addEventListener('click', () => {
@@ -24,31 +24,44 @@ const questions = [
     }
   ]
 
+  let currIndex = 0;
 
-  function selectAnswer(event) {
-    const selectedButton = event.target
-    const correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
-    Array.from(answerButtonsElement.children).forEach(button => {
-      setStatusClass(button, button.dataset.correct)
+
+  function showQuestion() {
+    let currQestion = questions[currIndex]
+    
+
+    currQestion.answers.forEach(answer => {
+      const button = document.createElement('button')
+      button.innerHTML = answer.text
+      button.classList.add('btn')
+      answerBtns.appendChild(button)
+      
+      if (answer.correct) {
+        button.dataset.correct = answer.correct
+      }
+      button.addEventListener('click', selectAnswer)
+      
     })
   }
-  
-  function setStatusClass(element, correct) {
-    clearStatusClass(element)
-    if (correct) {
-      element.classList.add('correct')
-      nextButton.classList.remove('hide')
-      startButton.classList('hide')
-    } else {
-      element.classList.add('wrong')
-      startButton.innerText = 'Restart'
-      startButton.classList.remove('hide')
-      nextButton.classList('hide')
+
+  function selectAnswer(e) {
+    const selected = e.target;
+    const isCorrect = selected.dataset.correct;
+    
+    if(isCorrect){
+      selected.classList.add('correct');
+    }else{
+      selected.classList.add('incorrect');
     }
+
+    Array.from(answerBtns.children).forEach(button => {
+      if(button.dataset.correct === 'true'){
+        button.classList.add('correct')
+      }
+      button.disabled = 'true';
+    })
+    console.log('works');
   }
-  
-  function clearStatusClass(element) {
-    element.classList.remove('correct')
-    element.classList.remove('wrong')
-  }
+
+  showQuestion()

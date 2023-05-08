@@ -17,6 +17,8 @@ body {
 /*Container style*/
 
 .container{
+  max-width: 500px;
+
   background-color: rgb(253, 253, 253);
   padding: 1%;
   border-radius: 12px;
@@ -65,7 +67,7 @@ h2{
 }
 
 .btn:hover{
-  background-color: rgb(125, 166, 221);
+  background-color: rgb(5, 46, 99);
   color: white;
 }
 
@@ -81,4 +83,15 @@ i{
   padding: 0;
   font-size: 100px;
   color: rgb(247, 234, 58);
+}
+
+
+
+
+.correct{
+  background-color: green;
+}
+
+.incorrect{
+  background-color: red;
 }
