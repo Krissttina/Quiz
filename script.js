@@ -4,16 +4,19 @@ const questionSection = document.getElementById('QuestionSection');
 const winSection = document.getElementById('WinSection');
 const failSection = document.getElementById('FailSection');
 
-const answerBtns = document.getElementById('answerBtns')
-const ques = document.getElementById('question')
+const answerBtns = document.getElementById('answerBtns');
+const ques = document.getElementById('question');
 
-const nextBtn = document.querySelector('.nextBtn')
-const submitBtn = document.querySelector('.submitBtn')
+const nextBtn = document.querySelector('.nextBtn');
+const submitBtn = document.querySelector('.submitBtn');
 
 //start the quiz
 document.getElementById('startBtn').addEventListener('click', () => {
   startSection.style.display = 'none';
   questionSection.style.display = 'block';
+
+  submitBtn.disabled = true;
+  submitBtn.style.background = 'grey';
 });
 
 //choose answear
@@ -32,6 +35,30 @@ const questions = [
         { text: 'Calling Style Sheet', correct: false },
         { text: 'Cascading Style Sheets', correct: true },
         { text: 'Cicle Style Sample', correct: false }
+      ]
+    },
+    {
+      question: 'What does JSON stand for?',
+      answers: [
+        { text: 'JavaScript Object Notation', correct: true },
+        { text: 'Java Open Number', correct: false },
+        { text: 'JS Object Note', correct: false }
+      ]
+    },
+    {
+      question: 'Which are the main JS variable types?',
+      answers: [
+        { text: 'var, char, boolean', correct: false },
+        { text: 'const, boolean, char', correct: false },
+        { text: 'let, string, boolean', correct: true }
+      ]
+    },
+    {
+      question: 'For what is XML used for?',
+      answers: [
+        { text: 'programming', correct: false },
+        { text: 'text model', correct: true },
+        { text: 'taking notes', correct: false }
       ]
     }
   ]
@@ -62,10 +89,12 @@ const questions = [
     nextBtn.addEventListener('click', () => {
       if(currIndex < questions.length){
         while (answerBtns.firstChild) {
-          answerBtns.removeChild(answerBtns.firstChild)
+          answerBtns.removeChild(answerBtns.firstChild);
         }
+        
         nextQuestion();
-        console.log(currIndex == questions.length - 1);
+      }else{
+        submitBtn.addEventListener('click', onSubmit);
       }
     })
   }
@@ -94,19 +123,20 @@ const questions = [
 
  function nextQuestion(){
     //submit btn to shows up
+
   if(questions.length - currIndex ==  1){
-      nextBtn.style.display = 'none';
-      submitBtn.style.display = 'block';
-     console.log(currIndex - questions.length);
+      nextBtn.disabled = 'true';
+      nextBtn.style.background = 'grey';
+
+      submitBtn.disabled = 'false';
+      submitBtn.style.background = 'green';
     }
   showQuestion();
  }
 
- function result(){
-  //nextBtn.style.display = 'none';
-
-  questionSection.style.display = 'none';
-
+ //submit the answers
+ function onSubmit(){
+  console.log(score);
   if(score == questions.length){
     winSection.style.display = 'none';
   }else{
@@ -114,6 +144,6 @@ const questions = [
 
     //create repeat btn
   }
- }
+}
 
   showQuestion()
