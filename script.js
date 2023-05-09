@@ -88,9 +88,10 @@ console.log(currIndex);
   });
 }
 
-function selectAnswer(e) {
+function selectAnswer(e) { 
   const selected = e.target;
   const isCorrect = selected.dataset.correct;
+  
 
   if (isCorrect) {
     selected.classList.add("correct");
