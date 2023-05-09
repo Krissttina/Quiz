@@ -65,16 +65,8 @@ const questions = [
           answerBtns.removeChild(answerBtns.firstChild)
         }
         nextQuestion();
-        
-        //problem - cant make submit btn to shows up
-      }else if(questions.length - currIndex == 0){
-        nextBtn.style.display = 'none';
-        submitBtn.style.display = 'block';
-       // console.log(currIndex - questions.length);
+        console.log(currIndex == questions.length - 1);
       }
-        
-        //result();
-      
     })
   }
 
@@ -97,9 +89,16 @@ const questions = [
       }
       button.disabled = 'true';
     })
+
   }
 
  function nextQuestion(){
+    //submit btn to shows up
+  if(questions.length - currIndex ==  1){
+      nextBtn.style.display = 'none';
+      submitBtn.style.display = 'block';
+     console.log(currIndex - questions.length);
+    }
   showQuestion();
  }
 
